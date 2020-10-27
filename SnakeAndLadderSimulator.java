@@ -16,9 +16,13 @@ public class SnakeAndLadderSimulator_1 {
 		System.out.println("Welcome in Snake And Ladder Simulator Program");
 		//Variables
 		int Player1Position = 0;
+		int PlayGame = 0;
+		int WinPoint= 100;
+
 		while(Player1Position < 100) {
 		int random = rollDice();
 		int option = checkOption();
+		PlayGame++;
 		// Use Switch case for option
 		switch (option) {
 		case 1:
@@ -27,12 +31,17 @@ public class SnakeAndLadderSimulator_1 {
 		case 2:
 			System.out.println("You got the Ladder");
 			Player1Position += random;
+			// In case the Player position go above 100,the player stay in the same previous
+			// position till the player gets no that adds to 100.
+			if (Player1Position > WinPoint) {
+				Player1Position -= random;
+			}
 			break;
 		case 3:
 			System.out.println("Oops! you got the Snake");
 			Player1Position -= random;
 			// In case the player position moves below 0, then the player restarts from 0
-                    	if (Player1Position - random < 0) {
+                    	if (Player1Position < 0) {
                         	Player1Position = 0;
                     	} else {
                         	Player1Position -= random;
