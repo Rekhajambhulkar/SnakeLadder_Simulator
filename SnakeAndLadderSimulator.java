@@ -12,10 +12,11 @@ public class SnakeAndLadderSimulator_1 {
 		return (int) Math.floor(Math.random() * 10) % 3 + 1;
 	}
 	public static void main(String args[]) {
-		//Variables
-		int Player1Position = 0;
 		// Print Welcome Message
 		System.out.println("Welcome in Snake And Ladder Simulator Program");
+		//Variables
+		int Player1Position = 0;
+		while(Player1Position < 100) {
 		int random = rollDice();
 		int option = checkOption();
 		// Use Switch case for option
@@ -30,6 +31,12 @@ public class SnakeAndLadderSimulator_1 {
 		case 3:
 			System.out.println("Oops! you got the Snake");
 			Player1Position -= random;
+			// In case the player position moves below 0, then the player restarts from 0
+                    	if (Player1Position - random < 0) {
+                        	Player1Position = 0;
+                    	} else {
+                        	Player1Position -= random;
+                    	}
 			break;
 		default:
 			System.out.println("Something Wrong");
