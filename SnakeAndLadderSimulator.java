@@ -51,6 +51,15 @@ public class SnakeAndLadderSimulator_1 {
 			System.out.println("Something Wrong");
 
 		}
-	}
+		System.out.println("\nPlayer1 position is:" + Player1Position);
+		System.out.println();
+		if (Player1Position < 100) {
+			continue;
+		} else {
+			// Show how many dice was played by player1
+			System.out.println("Number of time the Dice was Played by Player1: " + PlayGame + "times");
+			break;
+		}
+ 	  }
+     }
 }
-
